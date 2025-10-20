@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aira - Your AI Assistant</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+    input, button { padding: 10px; width: 300px; margin-top: 10px; }
+    #chat { margin-top: 20px; text-align: left; display: inline-block; max-width: 400px; }
+    .user { color: blue; }
+    .aira { color: green; }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Aira</h1>
+  <p>Your personal AI assistant – fast, smart, and easy</p>
+
+  <input type="text" id="userInput" placeholder="Ask me anything">
+  <button onclick="sendMessage()">Send</button>
+
+  <div id="chat"></div>
+
+  <script>
+    async function sendMessage() {
+      const input = document.getElementById('userInput').value.trim();
+      if (!input) return;
+
+      const chatDiv = document.getElementById('chat');
+      chatDiv.innerHTML += `<p class="user"><b>You:</b> ${input}</p>`;
+      document.getElementById('userInput').value = "";
+
+      // Dummy AI response for now
+      chatDiv.innerHTML += `<p class="aira"><b>Aira:</b> I'm thinking...</p>`;
+      chatDiv.scrollTop = chatDiv.scrollHeight;
+    }
+  </script>
+</body>
+</html>
